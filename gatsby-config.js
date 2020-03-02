@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
 	siteMetadata: {
 		title: 'Gatsby Bulma Quickstart',
@@ -12,6 +16,7 @@ module.exports = {
 		bulma: 'https://bulma.io/',
 		siteUrl: `https://www.example.com`
 	},
+
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		{
@@ -24,8 +29,8 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-contentful',
 			options: {
-				spaceId: 'pi0ggmdrkjto',
-				accessToken: 'knoQ0-Jc09rk-YXsfVTobHDBnBQUniljhZVdN7ve-5U',
+				spaceId: process.env.CONTENTFUL_SPACEID,
+				accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
 			},
 		},
 		'gatsby-transformer-sharp',
