@@ -1,41 +1,53 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { useStaticQuery, graphql } from "gatsby"
 
 import './style.scss';
-import gatsbyLogo from '../images/gatsby-icon.png';
 import bulmaLogo from '../images/bulma-logo.png';
 
-const Navbar = () => (
-	<div className="hero-head is-hidden-mobile">
-		<nav className="navbar">
-			<div className="container">
-				<div className="navbar-brand">
-					<a
-						className="navbar-item"
-						href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-					>
-						<img src={gatsbyLogo} alt="Logo-1" />
-						<img src={bulmaLogo} alt="Logo-2" />
-					</a>
-				</div>
-				<div id="navbarMenuHeroA" className="navbar-menu">
-					<div className="navbar-end">
-						<span className="navbar-item">
-							<a
-								className="button is-danger is-inverted"
-								href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-							>
-								<span className="icon">
-									<FaGithub size="fa-2x" />
-								</span>
-								<span>Download</span>
+const Navbar = () => {
+  const data = useStaticQuery(graphql`
+    query MenuQuery {
+			allContentfulPage(
+					sort: {fields: menuItemOrder, order: ASC}, 
+					filter: {menuItemOrder: {gt: 0}}
+				) {
+				edges {
+					node {
+						name
+						slug
+					}
+				}
+			}
+		}
+  `)
+
+	return (
+		<nav className="navbar" role="navigation" aria-label="main navigation">
+			<div className="navbar-brand">
+				<a
+					className="navbar-item"
+					href="/"
+				>
+					<img src={bulmaLogo} alt="Logo-2" />
+				</a>
+			</div>
+			<div id="navbarMenuHeroA" className="navbar-menu">
+				<div className="navbar-start">
+
+					{data.allContentfulPage.edges.map(({ node }) => {
+						const slug = `/${node.slug}`
+
+						return (
+							<a className="navbar-item" href={slug}>
+								{node.name}
 							</a>
-						</span>
-					</div>
+					)})}
+				</div>
+				<div className="navbar-end">
 				</div>
 			</div>
 		</nav>
-	</div>
-);
+	)
+}
 
 export default Navbar;
