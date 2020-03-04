@@ -9,7 +9,13 @@ const Layout = ({ children }) => (
 	<div>
 		<Helmet />
 		<Header />
-		{children}
+		<body>
+			<section className="section">
+				<div className="container">
+					{children}
+				</div>
+			</section>
+		</body>
 		<Footer />
 	</div>
 );

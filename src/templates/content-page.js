@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-
 import Layout from '../components/layout';
 
 const Page = ({ data }) => {
@@ -10,7 +9,9 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
-       {documentToReactComponents(json)}
+      <article className="content">
+        {documentToReactComponents(json)}
+      </article>
     </Layout>
   )
 }
