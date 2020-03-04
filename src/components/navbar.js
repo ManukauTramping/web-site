@@ -15,6 +15,21 @@ const Navbar = () => {
 					node {
 						name
 						slug
+						menuItemOrder
+					}
+				}
+			}
+			allContentfulDropdownMenu(
+					sort: {fields: order, order: ASC}
+				) {
+				edges {
+					node {
+						title
+						order
+						childPages {
+							name
+							slug
+						}
 					}
 				}
 			}
@@ -33,6 +48,25 @@ const Navbar = () => {
 			</div>
 			<div id="navbarMenuHeroA" className="navbar-menu">
 				<div className="navbar-start">
+					{data.allContentfulDropdownMenu.edges.map(({ node }) => {
+						return (
+							<div className="navbar-item has-dropdown is-hoverable">
+								<div className="navbar-link">
+									{node.title}
+								</div>
+
+								<div className="navbar-dropdown">
+									{node.childPages.map(({name, slug}) => {
+										const absoluteSlug = `/${slug}`
+
+										return (
+											<a className="navbar-item" href={absoluteSlug}>
+												{name}
+											</a>
+									)})}
+								</div>
+							</div>							
+						)})}
 
 					{data.allContentfulPage.edges.map(({ node }) => {
 						const slug = `/${node.slug}`
