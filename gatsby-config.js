@@ -4,16 +4,11 @@ require("dotenv").config({
 
 module.exports = {
 	siteMetadata: {
-		title: 'Gatsby Bulma Quickstart',
-		author: 'Aman Mittal',
+		title: 'Manukau Tramping Club',
+		author: 'Colin Henwood',
 		imageUrl: 'https://i.imgur.com/Vz81GEl.png',
 		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
 		keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
-		twitter: 'https://twitter.com/amanhimself',
-		github: `https://github.com/amandeepmittal`,
-		medium: 'https://medium.com/@amanhimself',
-		gatsby: 'https://www.gatsbyjs.org/',
-		bulma: 'https://bulma.io/',
 		siteUrl: `https://www.example.com`
 	},
 
