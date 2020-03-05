@@ -5,10 +5,10 @@ require("dotenv").config({
 module.exports = {
 	siteMetadata: {
 		title: 'Manukau Tramping Club',
-		author: 'Colin Henwood',
+		author: 'Manukau Tramping Club',
 		imageUrl: 'https://i.imgur.com/Vz81GEl.png',
-		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
-		keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
+		description: 'Web site for Manukau Tramping Club.',
+		keywords: `Tramping, Hiking, Club, Manukau, Auckland`,
 		siteUrl: `https://www.example.com`
 	},
 
