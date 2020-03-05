@@ -44,14 +44,6 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-sass`,
-		{
-			resolve: `gatsby-plugin-google-analytics`,
-			options: {
-				trackingId: 'UA-XXXXXXXX-X',
-				// Setting this parameter is optional (requried for some countries such as Germany)
-				anonymize: true
-			}
-		},
     { 
       resolve: `gatsby-plugin-purgecss`,
       options: {

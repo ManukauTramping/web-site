@@ -6,10 +6,10 @@ import Header from './header';
 import Footer from './footer';
 
 const Layout = ({ children }) => (
-	<div>
+	<>
 		<Helmet />
 		<Header />
-		<body>
+		<body className="has-navbar-fixed-top">
 			<section className="section">
 				<div className="container">
 					{children}
@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
 			</section>
 		</body>
 		<Footer />
-	</div>
+	</>
 );
 
 export default Layout;

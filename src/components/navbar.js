@@ -2,7 +2,6 @@ import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
 import './style.scss';
-import bulmaLogo from '../images/bulma-logo.png';
 
 const Navbar = () => {
   const data = useStaticQuery(graphql`
@@ -36,38 +35,46 @@ const Navbar = () => {
 		}
   `)
 
+  React.useEffect(() => {
+		// Get all "navbar-burger" elements
+		const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+	
+		// Check if there are any navbar burgers
+		if ($navbarBurgers.length > 0) {
+	
+			// Add a click event on each of them
+			$navbarBurgers.forEach( el => {
+				el.addEventListener('click', () => {
+	
+					// Get the target from the "data-target" attribute
+					const target = el.dataset.target;
+					const $target = document.getElementById(target);
+	
+					// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+					el.classList.toggle('is-active');
+					$target.classList.toggle('is-active');
+	
+				})
+			})
+
+			return function cleanup() {
+				$navbarBurgers.forEach(el => el.removeEventListener('click'))
+			}
+		}
+	})
+
 	return (
-		<nav className="navbar" role="navigation" aria-label="main navigation">
+		<nav className="navbar is-primary is-fixed-top" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
-				<a
-					className="navbar-item"
-					href="/"
-				>
-					<img src={bulmaLogo} alt="Logo-2" />
+				<a role="button" className="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
 				</a>
 			</div>
-			<div id="navbarMenuHeroA" className="navbar-menu">
+
+			<div id="navbarMenu" className="navbar-menu">
 				<div className="navbar-start">
-					{data.allContentfulDropdownMenu.edges.map(({ node }) => {
-						return (
-							<div className="navbar-item has-dropdown is-hoverable">
-								<div className="navbar-link">
-									{node.title}
-								</div>
-
-								<div className="navbar-dropdown">
-									{node.childPages.map(({name, slug}) => {
-										const absoluteSlug = `/${slug}`
-
-										return (
-											<a className="navbar-item" href={absoluteSlug}>
-												{name}
-											</a>
-									)})}
-								</div>
-							</div>							
-						)})}
-
 					{data.allContentfulPage.edges.map(({ node }) => {
 						const slug = `/${node.slug}`
 
@@ -76,6 +83,25 @@ const Navbar = () => {
 								{node.name}
 							</a>
 					)})}
+
+					{data.allContentfulDropdownMenu.edges.map(({ node }) => 
+						<div className="navbar-item has-dropdown is-hoverable">
+							<div className="navbar-link">
+								{node.title}
+							</div>
+
+							<div className="navbar-dropdown">
+								{node.childPages.map(({name, slug}) => {
+									const absoluteSlug = `/${slug}`
+
+									return (
+										<a className="navbar-item" href={absoluteSlug}>
+											{name}
+										</a>
+								)})}
+							</div>
+						</div>							
+					)}
 				</div>
 				<div className="navbar-end">
 				</div>

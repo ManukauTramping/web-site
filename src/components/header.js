@@ -4,10 +4,10 @@ import './style.scss';
 
 import Navbar from './navbar';
 
-const Header = ({ siteTitle }) => (
-	<section className="gradientBg is-fullheight-with-navbar">
+const Header = () => (
+	<header className="is-flex is-primary has-background-primary">
 		<Navbar />
-	</section>
+	</header>
 );
 
 export default Header;
