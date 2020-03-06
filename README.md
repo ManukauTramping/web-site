@@ -2,9 +2,9 @@
 
 > Source code to statically generate web-site from Content Management System.
 
-## Demo
+## Live site
 
-- [Demo Link](https://manukautrampingclub.netlify.com/)
+- [Web site](https://manukautrampingclub.netlify.com/)
 
 ## Technologies ⚛️
 
