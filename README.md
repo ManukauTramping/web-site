@@ -33,7 +33,7 @@ Enter the relevant informtion into the relevant fields. *Trip Date*, *Title*, *G
 
 You can select one or more leaders from existing contacts by clicking *Link existing entries*. 
 
-To create a new contact as the leader, click *Create new Contacts and link*. On the resulting page, enter a name and phone number, then select *Publish* from the dropdown labelled *DRAFT*. Then click *Close* innthe top right-hand corner.
+To create a new contact as the leader, click *Create new Contacts and link*. On the resulting page, enter a name and phone number, then select *Publish* from the dropdown labelled *DRAFT*. Then click *Close* in the top right-hand corner.
 
 Instead of entering a Description, you have the option of creating or using a shared description under *Standard Tramps*. Follow the same process as above for Leaders.
 
@@ -91,9 +91,9 @@ You can remove a link by clicking on "..." of a link and selecting *Remove*.
 
 ### 6. Update executive committee
 
-In the left-hand panel, select *Contacts View* under *Shared Views*. All contacts will appear in the main display panel.
+In the left-hand panel, select *Contacts View* under *Shared Views*. All contacts will appear in the main display panel. You can sort by name by clicking on the column heading.
 
-You can remove a current office holder by clicking on the name in the display list. The click "..." on the *Executive Role* and select *Remove*.
+You can remove a current office holder by clicking on the name in the display list. Then click "..." on the *Executive Role* and select *Remove*.
 
 You can assign an existing contact to a role by clicking on their name. Then click *Link existing entry* under *Executive Role* and select the required role.
 
@@ -101,7 +101,11 @@ You can create a new contact by clicking *Add Contact* in the top right-hand cor
 
 ### 7. Publishing
 
-Changes are not available to the web-site generator until they are published. Drafts and Changes will not be included in the web-site.
+Changes are not available to the web-site generator until they are published. Drafts and Changes will not be included in the web-site. 
+
+To see outstanding changes, scroll the left-hand panel of the Content display view down to *Status*. You can select each status to see corresponding entries. 
+
+You can view individual entries and Publish as required. You can also publish in bulk from the display list view.
 
 ## How to deploy web-site?
 
