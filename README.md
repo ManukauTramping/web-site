@@ -117,13 +117,13 @@ The web-site will automatically build and deploy whenever a pull request is merg
 
 You need npm and Gatsby CLI installed on your development machine.
 
-### 1. Clone the repository/Installation
+### 1. Clone/download the repository
 
 If you have Git installed on your system you can run the following command:
 
 `git clone https://github.com/ManukauTramping/web-site.git`
 
-Otherwise you can directly download it clicking on download button on this repository.
+Otherwise you can directly download it by clicking on download button on this repository.
 
 ### 2. Running in development mode
 
@@ -136,4 +136,4 @@ Go inside `web-site/` directory and run the following command:
 The site is now running at
 [http://localhost:8000](http://localhost:8000).
 
-Open `web-site/` directory in your code editor of choice and edit it. Save your changes and the browser will update them in real time!
+Open `web-site/` directory in your code editor of choice and edit it. Save your changes and the browser will update them in real time.
