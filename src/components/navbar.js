@@ -76,7 +76,9 @@ const Navbar = () => {
 			<div id="navbarMenu" className="navbar-menu">
 				<div className="navbar-start">
 					{data.allContentfulPage.edges.map(({ node }) => {
-						const slug = `/${node.slug}`
+						const slug = node.slug === "/"
+							? node.slug
+							: `/${node.slug}`
 
 						return (
 							<a className="navbar-item" href={slug}>
