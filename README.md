@@ -99,6 +99,10 @@ You can assign an existing contact to a role by clicking on their name. Then cli
 
 You can create a new contact by clicking *Add Contact* in the top right-hand corner. Always select the *Suggested Content Type*. You must enter a name and phone number. 
 
+### 7. Publishing
+
+Changes are not available to the web-site generator until they are published. Drafts and Changes will not be included in the web-site.
+
 ## How to deploy web-site?
 
 ### 1. Manual Deployment
