@@ -33,8 +33,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: 'Makefolio',
-				short_name: 'Makefolio',
+				name: 'Manukau',
+				short_name: 'Manukau',
 				start_url: '/',
 				background_color: '#2980b9',
 				theme_color: '#2980b9',

@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import PlannedTrips from '../components/plannedTrips';
 import ExecutiveList from '../components/executiveList';
 import UsefulLinks from '../components/usefulLinks';
+import RichTextDisplay from '../components/richTextDisplay';
 
 const Page = ({ data }) => {
   const json = data.page.content.json
@@ -13,7 +14,7 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <article className="content">
-        {documentToReactComponents(json)}
+        <RichTextDisplay json={json} />
       </article>
       {data.page.displayListOfPlannedTrips && 
         <PlannedTrips/>
