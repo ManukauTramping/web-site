@@ -27,7 +27,7 @@ const ExecutiveList = () => {
     <table className="table is-fullwidth is-narrow is-bordered">
       <tbody>
         {data.allContentfulContacts.edges.map(({ node }) => 
-          <tr>
+          <tr key={node.name}>
             <th>{node.executiveRole.role}</th>
             <td>{node.name}</td>
             <td>{node.phoneNumber}</td>

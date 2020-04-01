@@ -22,7 +22,7 @@ const AssetLink = ({ id, content }) => {
   return (
     asset
     ? asset.file.contentType.startsWith('image')
-      ? <img src={asset.file.url}>
+      ? <img src={asset.file.url} alt="">
           {documentToReactComponents(content)}
       </img>
       : <a href={asset.file.url} download type={asset.file.contentType}>

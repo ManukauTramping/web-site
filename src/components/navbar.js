@@ -68,13 +68,13 @@ const Navbar = () => {
 							: `/${node.slug}`
 
 						return (
-							<a className="navbar-item" href={slug}>
+							<a key={node.name} className="navbar-item" href={slug}>
 								{node.name}
 							</a>
 					)})}
 
 					{data.allContentfulDropdownMenu.edges.map(({ node }) => 
-						<div className="navbar-item has-dropdown is-hoverable">
+						<div key={node.title} className="navbar-item has-dropdown is-hoverable">
 							<div className="navbar-link">
 								{node.title}
 							</div>
@@ -84,7 +84,7 @@ const Navbar = () => {
 									const absoluteSlug = `/${slug}`
 
 									return (
-										<a className="navbar-item" href={absoluteSlug}>
+										<a key={name} className="navbar-item" href={absoluteSlug}>
 											{name}
 										</a>
 								)})}

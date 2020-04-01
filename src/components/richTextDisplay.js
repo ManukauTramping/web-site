@@ -14,7 +14,7 @@ const RichTextDisplay = ({ json }) => {
 
           return (
             file.contentType.startsWith('image')
-            ? <img src={file.url}></img>
+            ? <img src={file.url} alt=""></img>
             : <a href={file.url} download type={file.contentType}>
                 {documentToReactComponents(node.content[0])}
               </a>

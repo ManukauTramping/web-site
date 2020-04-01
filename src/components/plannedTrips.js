@@ -40,7 +40,7 @@ const PlannedTrips = () => {
     <>
       {data.allContentfulTrip.edges.map(({ node }) => {
         if (! moment(node.tripDate).isSameOrAfter(moment()))
-          return (<></>)
+          return (null)
 
         const description = node.description
           ? node.description
@@ -49,7 +49,7 @@ const PlannedTrips = () => {
             : null
 
         return (
-          <article className="card">
+          <article key={ node.tripDate + node.title } className="card">
             {/* <header className="card-header"> */}
               <p className="card-header-title">{moment(node.tripDate).format("MMMM Do YYYY")}</p>
               <p className="card-header-title">{node.title}</p>
@@ -64,7 +64,7 @@ const PlannedTrips = () => {
                   {node.leaders && 
                     <tr>
                       <th>Leader(s)</th>
-                      <td>{node.leaders.map(({name, phoneNumber}) => <><p>{name} - Phone: {phoneNumber}</p></>)}</td>
+                      <td>{node.leaders.map(({name, phoneNumber}) => <p key={ name }>{name} - Phone: {phoneNumber}</p>)}</td>
                     </tr>
                   }
                   <tr>
