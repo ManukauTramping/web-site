@@ -69,11 +69,7 @@ const Navbar = () => {
 	})
 
 	return (
-<<<<<<< HEAD
 		<nav className="navbar is-link is-fixed-top is-spaced container" role="navigation" aria-label="main navigation">
-=======
-		<nav className="navbar is-light is-fixed-top is-spaced container" role="navigation" aria-label="main navigation">
->>>>>>> master
 			<div className="navbar-brand">
 				<a role="button" className="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
 					<span aria-hidden="true"></span>

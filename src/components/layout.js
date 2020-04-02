@@ -7,7 +7,6 @@ import Footer from './footer';
 import BackgroundSection from './backgroundSection';
 
 const Layout = ({ children }) => (
-<<<<<<< HEAD
 	<BackgroundSection>
 		<div className="container">
 			<Helmet />
@@ -22,20 +21,6 @@ const Layout = ({ children }) => (
 			<Footer />
 		</div>
 	</BackgroundSection>
-=======
-	<div className="container">
-		<Helmet />
-		<header>
-			<Navbar />
-		</header>
-		<body className="has-navbar-fixed-top">
-			<section className="section">
-				{children}
-			</section>
-		</body>
-		<Footer />
-	</div>
->>>>>>> master
 );
 
 export default Layout;

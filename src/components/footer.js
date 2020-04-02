@@ -14,11 +14,7 @@ const Footer = () => (
 			}
 		`}
 		render={data => (
-<<<<<<< HEAD
 			<footer className="footer center has-background-grey-light">
-=======
-			<footer className="footer center has-background-light">
->>>>>>> master
 				<div className="content has-text-centered is-size-7">
 					Copyright 2020, {data.site.siteMetadata.author}
 				</div>
