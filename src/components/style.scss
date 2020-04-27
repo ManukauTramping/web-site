@@ -1,4 +1,16 @@
-@import './variables.scss';
+@charset "utf-8";
+
+$primary-color: #2980b9;
+$secondary-color: #6dd5fa;
+
+$site-background-hue: 195;
+$site-background-saturation: 70%;
+$site-background-luminance: 70%;
+
+$site-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.85);
+
+$table-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.60);;
+$card-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.75);;
 
 @import '~bulma/bulma.sass';
 
@@ -6,15 +18,24 @@
 	height: 100vh;
 }
 
+.has-background-translucent {
+	background-color: $site-background-color;
+}
+
+.has-background-footer {
+	background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 1);
+}
+
 .background-section {
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	background-position: bottom center;
-	background-repeat: repeat-y;
-	background-size: cover;
+	background-position: top left;
+	background-repeat: repeat;
+	background-size: contain;
 	background-attachment: fixed;
 	padding-top: 3.25rem;
+	background-color: $site-background-color;
 }
 
 .gradientBg {

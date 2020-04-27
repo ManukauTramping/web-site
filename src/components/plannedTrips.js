@@ -39,7 +39,7 @@ const PlannedTrips = () => {
 	return (
     <>
       {data.allContentfulTrip.edges.map(({ node }) => {
-        if (! moment(node.tripDate).isSameOrAfter(moment()))
+        if (! moment(node.tripDate).isSameOrAfter(moment("2020-01-01")))
           return (null)
 
         const description = node.description

@@ -13,7 +13,11 @@ const Layout = ({ children }) => (
 			<header>
 				<Navbar />
 			</header>
-			<section className="section has-background-white">
+			<section className="hero">
+				<div className="hero-body">
+				</div>
+			</section>
+			<section className="section has-background-translucent">
 				{children}
 			</section>
 			<Footer />
