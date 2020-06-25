@@ -9,7 +9,7 @@ module.exports = {
 		imageUrl: 'https://i.imgur.com/Vz81GEl.png',
 		description: 'Web site for Manukau Tramping Club.',
 		keywords: `Tramping, Hiking, Club, Manukau, Auckland`,
-		siteUrl: `https://www.example.com`
+		siteUrl: `https://manukautrampingclub.netlify.com`
 	},
 
 	plugins: [
@@ -26,8 +26,10 @@ module.exports = {
 			options: {
 				spaceId: process.env.CONTENTFUL_SPACEID,
 				accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
+				forceFullSync: true,
 			},
 		},
+		'gatsby-image',
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		{
@@ -54,7 +56,8 @@ module.exports = {
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       }
-    },
+		},
+		`gatsby-plugin-layout`,
 		`gatsby-plugin-sitemap`
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline

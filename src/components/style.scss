@@ -9,8 +9,10 @@ $site-background-luminance: 70%;
 
 $site-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.85);
 
-$table-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.60);;
-$card-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.75);;
+// $table-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.60);;
+// $card-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.75);;
+
+$body-font-size: 0.9em;
 
 @import '~bulma/bulma.sass';
 

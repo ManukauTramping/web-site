@@ -25,11 +25,6 @@ const PlannedTrips = () => {
             description {
               json
             }
-            destination {
-              description {
-                json
-              }
-            }
           }
         }
       }
@@ -41,12 +36,6 @@ const PlannedTrips = () => {
       {data.allContentfulTrip.edges.map(({ node }) => {
         if (! moment(node.tripDate).isSameOrAfter(moment("2020-01-01")))
           return (null)
-
-        const description = node.description
-          ? node.description
-          : node.destination 
-            ? node.destination.description
-            : null
 
         return (
           <article key={ node.tripDate + node.title } className="card">
@@ -77,10 +66,10 @@ const PlannedTrips = () => {
                       <td>{node.fare}</td>
                     </tr>
                   }     
-                  { description &&
+                  { node.description &&
                     <tr>
                       <th>Description</th>
-                      <td>{documentToReactComponents(description.json)}</td>
+                      <td>{documentToReactComponents(node.description.json)}</td>
                     </tr>
                   }
                 </tbody>

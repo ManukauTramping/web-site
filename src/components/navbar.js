@@ -43,7 +43,7 @@ const Navbar = () => {
   `)
 
 	return (
-		<nav className="navbar is-link is-fixed-top is-spaced container" role="navigation" aria-label="main navigation">
+		<nav className="navbar is-link is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
 				<a role="button" className={`navbar-burger burger is-marginless ${ isBurgerActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
 					onClick={() => {
@@ -55,7 +55,7 @@ const Navbar = () => {
 					<span aria-hidden="true"></span>
 				</a>
 
-				<div className="navbar-item is-size-4 is-hidden-desktop">	
+				<div className="navbar-item is-size-3 is-hidden-desktop">	
 					{data.site.siteMetadata.author}
 				</div>
 			</div>
@@ -68,14 +68,14 @@ const Navbar = () => {
 							: `/${node.slug}`
 
 						return (
-							<a key={node.name} className="navbar-item" href={slug}>
+							<a key={node.name} className="navbar-item is-size-5" href={slug}>
 								{node.name}
 							</a>
 					)})}
 
 					{data.allContentfulDropdownMenu.edges.map(({ node }) => 
 						<div key={node.title} className="navbar-item has-dropdown is-hoverable">
-							<div className="navbar-link">
+							<div className="navbar-link is-size-5">
 								{node.title}
 							</div>
 
@@ -84,7 +84,7 @@ const Navbar = () => {
 									const absoluteSlug = `/${slug}`
 
 									return (
-										<a key={name} className="navbar-item" href={absoluteSlug}>
+										<a key={name} className="navbar-item is-size-5" href={absoluteSlug}>
 											{name}
 										</a>
 								)})}
@@ -93,7 +93,7 @@ const Navbar = () => {
 					)}
 				</div>
 				<div className="navbar-end">
-					<a className="navbar-item is-size-4" href="/">
+					<a className="navbar-item is-size-3" href="/">
 						{data.site.siteMetadata.author}
 					</a>
 				</div>
