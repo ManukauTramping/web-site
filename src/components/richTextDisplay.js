@@ -19,7 +19,7 @@ const RichTextDisplay = ({ json }) => {
 
       [INLINES.EMBEDDED_ENTRY]: node => {
         const target = node.data.target
-        const contentTypeId = target.sys.contentType.sys.id
+        //const contentTypeId = target.sys.contentType.sys.id
 
         // if (contentTypeId === 'information-page')
         //   return RenderPageEntry(target.fields)

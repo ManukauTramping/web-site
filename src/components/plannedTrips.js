@@ -3,8 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import moment from 'moment';
 
-import './style.scss';
-
 const PlannedTrips = () => {
   const data = useStaticQuery(graphql`
     query TripQuery {

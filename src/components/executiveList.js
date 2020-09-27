@@ -1,8 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
-import './style.scss';
-
 const ExecutiveList = () => {
   const data = useStaticQuery(graphql`
     query ExecutiveQuery {

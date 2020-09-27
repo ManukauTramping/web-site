@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
-import './style.scss';
-
 const Navbar = () => {
 	const [isBurgerActive, setIsBurgerActive ] = useState(false);
 
@@ -45,7 +43,10 @@ const Navbar = () => {
 	return (
 		<nav className="navbar is-link is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
-				<a role="button" className={`navbar-burger burger is-marginless ${ isBurgerActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
+				<div className="navbar-item is-size-3 is-size-4-mobile">
+					{data.site.siteMetadata.author}
+				</div>
+				<a role="button" className={`navbar-burger burger ${ isBurgerActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
 					onClick={() => {
 						setIsBurgerActive(!isBurgerActive);
 						document.getElementById("navbarMenu").classList.toggle('is-active');
@@ -54,48 +55,42 @@ const Navbar = () => {
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 				</a>
-
-				<div className="navbar-item is-size-3 is-hidden-desktop">	
-					{data.site.siteMetadata.author}
-				</div>
 			</div>
 
 			<div id="navbarMenu" className="navbar-menu">
 				<div className="navbar-start">
-					{data.allContentfulPage.edges.map(({ node }) => {
-						const slug = node.slug === "/"
-							? node.slug
-							: `/${node.slug}`
-
-						return (
-							<a key={node.name} className="navbar-item is-size-5" href={slug}>
-								{node.name}
-							</a>
-					)})}
-
-					{data.allContentfulDropdownMenu.edges.map(({ node }) => 
-						<div key={node.title} className="navbar-item has-dropdown is-hoverable">
-							<div className="navbar-link is-size-5">
-								{node.title}
-							</div>
-
-							<div className="navbar-dropdown">
-								{node.childPages.map(({name, slug}) => {
-									const absoluteSlug = `/${slug}`
-
-									return (
-										<a key={name} className="navbar-item is-size-5" href={absoluteSlug}>
-											{name}
-										</a>
-								)})}
-							</div>
-						</div>							
-					)}
 				</div>
 				<div className="navbar-end">
-					<a className="navbar-item is-size-3" href="/">
-						{data.site.siteMetadata.author}
-					</a>
+					{data.allContentfulPage.edges.map(({ node }) => {
+						const slug = node.slug === "/"
+								? node.slug
+								: `/${node.slug}`
+
+						return (
+								<a key={node.name} className="navbar-item is-size-5" href={slug}>
+									{node.name}
+								</a>
+						)})}
+
+					{data.allContentfulDropdownMenu.edges.map(({ node }) =>
+							<div key={node.title} className="navbar-item has-dropdown is-hoverable">
+								<div className="navbar-link is-size-5">
+									{node.title}
+								</div>
+
+								<div className="navbar-dropdown">
+									{node.childPages.map(({name, slug}) => {
+										const absoluteSlug = `/${slug}`
+
+										return (
+												<a key={name} className="navbar-item is-size-5" href={absoluteSlug}>
+													{name}
+												</a>
+										)})}
+								</div>
+							</div>
+					)}
+					<div className={'navbar-item'}>{'   '}</div>
 				</div>
 			</div>
 		</nav>
