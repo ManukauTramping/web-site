@@ -23,11 +23,11 @@ const Layout = ({ photoCarouselSlideCount, children }) => (
 									<PhotoCarousel name="Primary" slideCount={2}/>
 								</div>
 						}
-						<div className={'is-hidden-tablet'}>
-							<PhotoCarousel name="Primary" slideCount={1} />
-						</div>
 					</>
 				}
+				<div className={'is-hidden-tablet'}>
+					<PhotoCarousel name="Primary" slideCount={1} />
+				</div>
 				{children}
 			</article>
 		</section>

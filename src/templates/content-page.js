@@ -13,7 +13,7 @@ const Page = ({ data }) => {
 
   return (
     <>
-      <article className="content">
+      <article className="content has-background-info-light">
         <RichTextDisplay json={json} />
       </article>
       {data.page.photoLinks &&

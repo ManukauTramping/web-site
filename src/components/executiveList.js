@@ -22,7 +22,7 @@ const ExecutiveList = () => {
   `)
 
 	return (
-    <table className="table is-fullwidth is-narrow is-bordered">
+    <table className="table is-fullwidth is-narrow is-bordered is-striped">
       <tbody>
         {data.allContentfulContacts.edges.map(({ node }) => 
           <tr key={node.name}>
