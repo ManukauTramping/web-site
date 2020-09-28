@@ -1,22 +1,26 @@
 import React from 'react';
 import { graphql } from "gatsby"
 
-import PlannedTrips from '../components/plannedTrips';
 import ExecutiveList from '../components/executiveList';
-import UsefulLinks from '../components/usefulLinks';
+import PhotoLinks from '../components/photoLinks';
+import PlannedTrips from '../components/plannedTrips';
 import RichTextDisplay from '../components/richTextDisplay';
+import UsefulLinks from '../components/usefulLinks';
 
 const Page = ({ data }) => {
   const json = data.page.content.json
-  console.log(json)
+  //console.log(json)
 
   return (
     <>
-      <article className="content">
+      <article className="content has-background-info-light">
         <RichTextDisplay json={json} />
       </article>
+      {data.page.photoLinks &&
+        <PhotoLinks links={data.page.photoLinks} />
+      }
       {data.page.displayListOfPlannedTrips && 
-        <PlannedTrips/>
+        <PlannedTrips className="is-clearfix" />
       }
       {data.page.displayExecutiveList && 
         <ExecutiveList/>
@@ -36,6 +40,18 @@ export const getPageContent = graphql`
       displayListOfLinks
       content {
         json
+      }
+      photoLinks {
+        caption
+        page {
+          slug
+        }
+        photo {
+          id
+          fluid(maxWidth:800, maxHeight: 500) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
       }
     }
   }

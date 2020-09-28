@@ -3,8 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import moment from 'moment';
 
-import './style.scss';
-
 const PlannedTrips = () => {
   const data = useStaticQuery(graphql`
     query TripQuery {
@@ -39,12 +37,12 @@ const PlannedTrips = () => {
 
         return (
           <article key={ node.tripDate + node.title } className="card">
-            {/* <header className="card-header"> */}
-              <p className="card-header-title">{moment(node.tripDate).format("MMMM Do YYYY")}</p>
-              <p className="card-header-title">{node.title}</p>
-            {/* </header> */}
+            {/*<header className="card-header">*/}
+              <div className="card-header-title has-background-info-light">{moment(node.tripDate).format("MMMM Do YYYY")}</div>
+              <div className="card-header-title has-background-info-light">{node.title}</div>
+            {/*</header>*/}
             <section className="card-content">
-              <table className="table is-fullwidth is-narrow is-bordered">
+              <table className="table is-fullwidth is-narrow is-bordered is-striped">
                 <tbody>
                   <tr>
                     <th>Grade</th>

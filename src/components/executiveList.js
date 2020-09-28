@@ -1,8 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
-import './style.scss';
-
 const ExecutiveList = () => {
   const data = useStaticQuery(graphql`
     query ExecutiveQuery {
@@ -24,7 +22,7 @@ const ExecutiveList = () => {
   `)
 
 	return (
-    <table className="table is-fullwidth is-narrow is-bordered">
+    <table className="table is-fullwidth is-narrow is-bordered is-striped">
       <tbody>
         {data.allContentfulContacts.edges.map(({ node }) => 
           <tr key={node.name}>

@@ -9,15 +9,22 @@ $site-background-luminance: 70%;
 
 $site-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.85);
 
-// $table-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.60);;
-// $card-background-color: hsla($site-background-hue, $site-background-saturation, $site-background-luminance, 0.75);;
-
 $body-font-size: 0.9em;
 
+$dimensions: 512;
+
+$table-background-color: hsl(206, 70%, 96%);
+
 @import '~bulma/bulma.sass';
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 .is-full-height {
 	height: 100vh;
+}
+
+.italics-on-hover:hover {
+	font-style: italic;
 }
 
 .has-background-translucent {
@@ -51,7 +58,14 @@ $body-font-size: 0.9em;
 	align-items: center;
 }
 
+.sticky-footer-layout {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
 .footer {
+	clear: both;
 	display: flex;
 	padding: 1.5rem 1.5rem;
 	line-height: 1.5rem;

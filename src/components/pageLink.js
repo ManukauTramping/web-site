@@ -14,7 +14,7 @@ const PageLink = ({ id, content }) => {
     }
   `)
 
-  return   <>{documentToReactComponents(content)}</>
+  return <>{documentToReactComponents(content)}</>
 
   // const asset = data.allContentfulPage.nodes.find(node => id.endsWith(node.contentful_id))
 
