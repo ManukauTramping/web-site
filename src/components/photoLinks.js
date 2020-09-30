@@ -6,7 +6,7 @@ const PhotoLinks = ({ links }) => {
 	return (
     <div className={'columns is-multiline'}>
       {links.map(({ caption, page, photo }) =>
-        <div key={caption} className={'column is-half'}>
+        <div key={caption} className={'column is-half-tablet is-one-quarter-desktop'}>
           <a key={page.slug} href={`/${page.slug}`}>
             <div className={'is-relative'}>
               <Img key={photo.id} fluid={photo.fluid} title={caption} fadeIn={false} />

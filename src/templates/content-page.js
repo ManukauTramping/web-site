@@ -9,25 +9,26 @@ import UsefulLinks from '../components/usefulLinks';
 
 const Page = ({ data }) => {
   const json = data.page.content.json
-  //console.log(json)
 
   return (
     <>
       <article className="content has-background-info-light">
         <RichTextDisplay json={json} />
       </article>
-      {data.page.photoLinks &&
-        <PhotoLinks links={data.page.photoLinks} />
-      }
-      {data.page.displayListOfPlannedTrips && 
-        <PlannedTrips className="is-clearfix" />
-      }
-      {data.page.displayExecutiveList && 
-        <ExecutiveList/>
-      }
-      {data.page.displayListOfLinks && 
-        <UsefulLinks/>
-      }
+      <div className={'is-clearfix'}>
+        {data.page.photoLinks &&
+          <PhotoLinks links={data.page.photoLinks}/>
+        }
+        {data.page.displayListOfPlannedTrips &&
+          <PlannedTrips/>
+        }
+        {data.page.displayExecutiveList &&
+          <ExecutiveList/>
+        }
+        {data.page.displayListOfLinks &&
+          <UsefulLinks/>
+        }
+      </div>
     </>
   )
 }
