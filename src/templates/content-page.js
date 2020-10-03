@@ -23,7 +23,7 @@ const Page = ({ data }) => {
 
   return (
     <>
-      <article className="content">
+      <article className="content is-clearfix">
         {data.page.photoCarousel &&
           <PhotoCarousel photos={data.page.photoCarousel} />
         }
