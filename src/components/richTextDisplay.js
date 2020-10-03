@@ -17,6 +17,16 @@ const RichTextDisplay = ({ json }) => {
           : <AssetLink id={target.sys.id} content={node.content[0]} />
       },
 
+      [INLINES.HYPERLINK]: node => {
+        const uri = node.data.uri
+        const name = node.content[0].value   //documentToReactComponents(node.content, {})
+        return (
+          <a href={uri} key={uri} className={'has-text-danger-dark'}>
+            {name}
+          </a>
+        )
+      },
+
       [INLINES.EMBEDDED_ENTRY]: node => {
         const target = node.data.target
         //const contentTypeId = target.sys.contentType.sys.id

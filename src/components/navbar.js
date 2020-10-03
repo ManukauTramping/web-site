@@ -43,9 +43,9 @@ const Navbar = () => {
 	return (
 		<nav className="navbar is-link is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
-				<div className="navbar-item is-size-3 is-size-4-mobile">
+				<a className="navbar-item is-size-3 is-size-4-mobile" href={'/'}>
 					{data.site.siteMetadata.author}
-				</div>
+				</a>
 				<a role="button" className={`navbar-burger burger ${ isBurgerActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
 					onClick={() => {
 						setIsBurgerActive(!isBurgerActive);
