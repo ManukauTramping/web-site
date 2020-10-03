@@ -1,26 +1,8 @@
-import React, { Component } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react"
 import Img from "gatsby-image"
 import Slider from "react-slick"
 
-const PhotoCarousel = ({ name, slideCount }) => {
-  const data = useStaticQuery(graphql`
-    query photoCarouselQuery {
-      allContentfulPhotoCarousel {
-        nodes {
-          id
-          name
-          photos {
-            id
-            title
-            fluid(maxWidth:800, maxHeight: 500) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-        }
-      }
-    }  
-  `)
+const PhotoCarousel = ({ name, slideCount, photos }) => {
 
   const carouselOptions = {
     dots: false,
@@ -35,13 +17,22 @@ const PhotoCarousel = ({ name, slideCount }) => {
     cssEase: "linear"
   }
 
-  const photoCarousel = data.allContentfulPhotoCarousel.nodes.find(node => node.name === name)
-  const images = photoCarousel.photos.map(photo => <Img fluid={photo.fluid} key={photo.id} />)
-
-  return (
+  const images = photos.map(photo => <Img fluid={photo.fluid} key={photo.id} />)
+  const slider = (
     <Slider {...carouselOptions}>
       {images}
     </Slider>
+  )
+
+  return (
+    <>
+      <div className={'floating-element is-hidden-mobile'}>
+        {slider}
+      </div>
+      <div className={'is-hidden-tablet'}>
+        {slider}
+      </div>
+    </>
   )
 }
 
