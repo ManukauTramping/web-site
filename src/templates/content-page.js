@@ -13,28 +13,28 @@ const Page = ({ data }) => {
   const json = data.page.content.json
   const includedList = data.page.includedList
 
-  const generatedMarkup = includedList == 'Trips'
+  const generatedMarkup = includedList === 'Trips'
     ? <PlannedTrips />
-    : includedList == 'Committee Members'
+    : includedList === 'Committee Members'
       ? <ExecutiveList />
-      : includedList == 'Useful Links'
+      : includedList === 'Useful Links'
         ? <UsefulLinks />
         : <></>
 
   return (
     <>
-      <article className="content is-clearfix">
+      <section className="content is-clearfix">
         {data.page.photoCarousel &&
           <PhotoCarousel photos={data.page.photoCarousel} />
         }
         <RichTextDisplay json={json} />
-      </article>
-      <div className={'is-clearfix'}>
+      </section>
+      <section>
         {data.page.photoLinks &&
           <PhotoLinks links={data.page.photoLinks}/>
         }
         {generatedMarkup}
-      </div>
+      </section>
     </>
   )
 }
