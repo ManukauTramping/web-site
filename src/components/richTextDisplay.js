@@ -21,7 +21,7 @@ const RichTextDisplay = ({ json }) => {
         const uri = node.data.uri
         const name = node.content[0].value   //documentToReactComponents(node.content, {})
         return (
-          <a href={uri} key={uri} className={'has-text-danger-dark'}>
+          <a href={uri} key={uri} className={'has-text-link-dark'}>
             {name}
           </a>
         )
