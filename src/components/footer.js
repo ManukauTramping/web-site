@@ -13,7 +13,7 @@ const Footer = () => (
 			}
 		`}
 		render={data => (
-			<footer className="footer center has-background-link-light has-text-dark">
+			<footer className="footer center has-background-info-dark has-text-light">
 				<div className="content has-text-centered is-size-7">
 					Copyright 2020, {data.site.siteMetadata.author}
 				</div>

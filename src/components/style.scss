@@ -23,6 +23,12 @@ $table-background-color: hsl(206, 70%, 96%);
 	height: 100vh;
 }
 
+.floating-element {
+	float: left;
+	width: 50%;
+	margin-right: 20px;
+}
+
 .italics-on-hover:hover {
 	font-style: italic;
 }

@@ -36,16 +36,14 @@ const PlannedTrips = () => {
           return (null)
 
         return (
-          <article key={ node.tripDate + node.title } className="card">
-            {/*<header className="card-header">*/}
-              <div className="card-header-title has-background-info-light">{moment(node.tripDate).format("MMMM Do YYYY")}</div>
-              <div className="card-header-title has-background-info-light">{node.title}</div>
-            {/*</header>*/}
+          <article key={ node.tripDate + node.title } className="card has-background-info-light">
+            <div className="card-header-title">{moment(node.tripDate).format("MMMM Do YYYY")}</div>
+            <div className="card-header-title">{node.title}</div>
             <section className="card-content">
               <table className="table is-fullwidth is-narrow is-bordered is-striped">
                 <tbody>
                   <tr>
-                    <th>Grade</th>
+                    <th style={{width:'20%'}}>Grade</th>
                     <td>{node.grade}</td>
                   </tr>
                   {node.leaders && 

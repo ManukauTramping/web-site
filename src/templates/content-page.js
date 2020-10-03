@@ -6,28 +6,34 @@ import PhotoLinks from '../components/photoLinks';
 import PlannedTrips from '../components/plannedTrips';
 import RichTextDisplay from '../components/richTextDisplay';
 import UsefulLinks from '../components/usefulLinks';
+import PhotoCarousel from "../components/photoCarouselSlick";
 
 const Page = ({ data }) => {
+
   const json = data.page.content.json
+  const includedList = data.page.includedList
+
+  const generatedMarkup = includedList == 'Trips'
+    ? <PlannedTrips />
+    : includedList == 'Committee Members'
+      ? <ExecutiveList />
+      : includedList == 'Useful Links'
+        ? <UsefulLinks />
+        : <></>
 
   return (
     <>
-      <article className="content has-background-info-light">
+      <article className="content">
+        {data.page.photoCarousel &&
+          <PhotoCarousel photos={data.page.photoCarousel} />
+        }
         <RichTextDisplay json={json} />
       </article>
       <div className={'is-clearfix'}>
         {data.page.photoLinks &&
           <PhotoLinks links={data.page.photoLinks}/>
         }
-        {data.page.displayListOfPlannedTrips &&
-          <PlannedTrips/>
-        }
-        {data.page.displayExecutiveList &&
-          <ExecutiveList/>
-        }
-        {data.page.displayListOfLinks &&
-          <UsefulLinks/>
-        }
+        {generatedMarkup}
       </div>
     </>
   )
@@ -36,11 +42,16 @@ const Page = ({ data }) => {
 export const getPageContent = graphql`
   query getPageContent($slug: String!) {
     page: contentfulPage(slug: { eq: $slug }) {
-      displayListOfPlannedTrips
-      displayExecutiveList
-      displayListOfLinks
+      includedList
       content {
         json
+      }
+      photoCarousel {
+        id
+        title
+        fluid(maxWidth:800, maxHeight: 500) {
+          ...GatsbyContentfulFluid_withWebp
+        }
       }
       photoLinks {
         caption
