@@ -79,14 +79,11 @@ const Navbar = () => {
 								</div>
 
 								<div className="navbar-dropdown">
-									{node.childPages.map(({name, slug}) => {
-										const absoluteSlug = `/${slug}`
-
-										return (
-												<a key={name} className="navbar-item is-size-5" href={absoluteSlug}>
-													{name}
-												</a>
-										)})}
+									{node.childPages.map(({name, slug}) =>
+											<a key={name} className="navbar-item is-size-5" href={`/${slug}`}>
+												{name}
+											</a>
+										)}
 								</div>
 							</div>
 					)}
