@@ -11,31 +11,44 @@ import PhotoCarousel from "../components/photoCarouselSlick";
 const Page = ({ data }) => {
 
   const json = data.page.content.json
+  const photoLinks = data.page.photoLinks
   const includedList = data.page.includedList
 
-  const generatedMarkup = includedList === 'Trips'
-    ? <PlannedTrips />
-    : includedList === 'Committee Members'
-      ? <ExecutiveList />
-      : includedList === 'Useful Links'
-        ? <UsefulLinks />
-        : <></>
+
+  let generatedMarkup = null
+  switch(includedList)
+  {
+    case 'Trips':
+      generatedMarkup = <PlannedTrips />
+      break
+    case 'Committee Members':
+      generatedMarkup = <ExecutiveList />
+      break
+    case 'Useful Links':
+      generatedMarkup = <UsefulLinks />
+      break
+    default:
+      generatedMarkup = <div className={'pb-0'} />
+      break
+  }
 
   return (
-    <>
-      <section className="content is-clearfix">
+    <section className="content p-3 has-background-info-light is-size-6">
+      <article className="is-clearfix pb-5">
         {data.page.photoCarousel &&
           <PhotoCarousel photos={data.page.photoCarousel} />
         }
         <RichTextDisplay json={json} />
-      </section>
-      <section>
-        {data.page.photoLinks &&
-          <PhotoLinks links={data.page.photoLinks}/>
-        }
-        {generatedMarkup}
-      </section>
-    </>
+      </article>
+      {(photoLinks || generatedMarkup) &&
+        <>
+          {data.page.photoLinks &&
+            <PhotoLinks links={data.page.photoLinks}/>
+          }
+          {generatedMarkup}
+        </>
+      }
+    </section>
   )
 }
 
