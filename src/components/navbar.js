@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 const Navbar = () => {
 	const [isBurgerActive, setIsBurgerActive ] = useState(false);
@@ -43,9 +43,9 @@ const Navbar = () => {
 	return (
 		<nav className="navbar is-link is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
-				<a className="navbar-item is-size-3 is-size-4-mobile" href={'/'}>
+				<Link className="navbar-item is-size-3 is-size-4-mobile" to={'/'}>
 					{data.site.siteMetadata.author}
-				</a>
+				</Link>
 				<a role="button" className={`navbar-burger burger ${ isBurgerActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
 					onClick={() => {
 						setIsBurgerActive(!isBurgerActive);
@@ -67,9 +67,9 @@ const Navbar = () => {
 								: `/${node.slug}`
 
 						return (
-								<a key={node.name} className="navbar-item is-size-5" href={slug}>
+								<Link key={node.name} className="navbar-item is-size-5" to={slug}>
 									{node.name}
-								</a>
+								</Link>
 						)})}
 
 					{data.allContentfulDropdownMenu.edges.map(({ node }) =>
@@ -80,9 +80,9 @@ const Navbar = () => {
 
 								<div className="navbar-dropdown">
 									{node.childPages.map(({name, slug}) =>
-											<a key={name} className="navbar-item is-size-5" href={`/${slug}`}>
+											<Link key={name} className="navbar-item is-size-5" to={`/${slug}`}>
 												{name}
-											</a>
+											</Link>
 										)}
 								</div>
 							</div>

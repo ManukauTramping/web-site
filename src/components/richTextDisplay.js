@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "gatsby"
+import { Link } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES } from "@contentful/rich-text-types"
 import MediaLink from "./mediaLink"
@@ -21,9 +21,9 @@ const RichTextDisplay = ({ json }) => {
         const uri = node.data.uri
         const name = node.content[0].value   //documentToReactComponents(node.content, {})
         return (
-          <a href={uri} key={uri} className={'has-text-link-dark'}>
+          <Link to={uri} key={uri} className={'has-text-link-dark'}>
             {name}
-          </a>
+          </Link>
         )
       },
 

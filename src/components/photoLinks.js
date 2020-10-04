@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby'
 import Img from "gatsby-image";
 
 const PhotoLinks = ({ links }) => {
@@ -7,14 +8,14 @@ const PhotoLinks = ({ links }) => {
     <div className={'columns is-multiline'}>
       {links.map(({ caption, page, photo }) =>
         <div key={caption} className={'column is-half-tablet is-one-quarter-desktop'}>
-          <a key={page.slug} href={`/${page.slug}`}>
+          <Link key={page.slug} to={`/${page.slug}`}>
             <div className={'is-relative'}>
               <Img key={photo.id} fluid={photo.fluid} title={caption} fadeIn={false} />
               <div className={'is-size-3 has-text-centered has-text-white is-overlay italics-on-hover'}>
                 {caption}
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       )}
     </div>
