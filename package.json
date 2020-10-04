@@ -5,6 +5,7 @@
   "author": "Colin Henwood",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@hookform/resolvers": "^1.0.0",
     "bulma": "^0.9.1",
     "gatsby": "^2.24.67",
     "gatsby-background-image": "^0.10.2",
@@ -26,10 +27,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
+    "react-hook-form": "^6.9.0",
     "react-icons": "^3.11.0",
     "react-responsive-carousel": "^3.2.10",
     "react-slick": "^0.27.11",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yup": "^0.29.3"
   },
   "keywords": [
     "gatsby",

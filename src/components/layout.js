@@ -11,9 +11,7 @@ const Layout = ({ children }) => (
 			<Navbar />
 		</header>
 		<section className="section">
-			<article className={"has-background-info-light is-size-6"}>
-				{children}
-			</article>
+			{children}
 		</section>
 		<Footer />
 	</>
