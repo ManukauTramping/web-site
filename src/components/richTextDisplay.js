@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "gatsby"
+import { Link } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES } from "@contentful/rich-text-types"
 import MediaLink from "./mediaLink"
@@ -15,6 +15,16 @@ const RichTextDisplay = ({ json }) => {
         return target.fields
           ? <MediaLink file={target.fields.file['en-NZ']} content={node.content[0]} />
           : <AssetLink id={target.sys.id} content={node.content[0]} />
+      },
+
+      [INLINES.HYPERLINK]: node => {
+        const uri = node.data.uri
+        const name = node.content[0].value   //documentToReactComponents(node.content, {})
+        return (
+          <Link to={uri} key={uri} className={'has-text-link-dark'}>
+            {name}
+          </Link>
+        )
       },
 
       [INLINES.EMBEDDED_ENTRY]: node => {

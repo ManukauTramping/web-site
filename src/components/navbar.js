@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 const Navbar = () => {
-	const [isBurgerActive, setIsBurgerActive ] = useState(false);
-
   const data = useStaticQuery(graphql`
     query MenuQuery {
 			site {
@@ -40,24 +38,23 @@ const Navbar = () => {
 		}
   `)
 
+	const [isBurgerActive, setIsBurgerActive ] = useState(false);
+
 	return (
 		<nav className="navbar is-link is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
-				<div className="navbar-item is-size-3 is-size-4-mobile">
+				<Link className="navbar-item is-size-3 is-size-4-mobile" to={'/'}>
 					{data.site.siteMetadata.author}
-				</div>
+				</Link>
 				<a role="button" className={`navbar-burger burger ${ isBurgerActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
-					onClick={() => {
-						setIsBurgerActive(!isBurgerActive);
-						document.getElementById("navbarMenu").classList.toggle('is-active');
-					}}>
+					onClick={() => setIsBurgerActive(!isBurgerActive)}>
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 				</a>
 			</div>
 
-			<div id="navbarMenu" className="navbar-menu">
+			<div id="navbarMenu" className={`navbar-menu ${ isBurgerActive ? 'is-active' : ''}`}>
 				<div className="navbar-start">
 				</div>
 				<div className="navbar-end">
@@ -67,9 +64,10 @@ const Navbar = () => {
 								: `/${node.slug}`
 
 						return (
-								<a key={node.name} className="navbar-item is-size-5" href={slug}>
+								<Link key={node.name} className="navbar-item is-size-5" to={slug}
+											onClick={() => setIsBurgerActive(!isBurgerActive)}>
 									{node.name}
-								</a>
+								</Link>
 						)})}
 
 					{data.allContentfulDropdownMenu.edges.map(({ node }) =>
@@ -80,9 +78,10 @@ const Navbar = () => {
 
 								<div className="navbar-dropdown">
 									{node.childPages.map(({name, slug}) =>
-											<a key={name} className="navbar-item is-size-5" href={`/${slug}`}>
+											<Link key={name} className="navbar-item is-size-5" to={`/${slug}`}
+														onClick={() => setIsBurgerActive(!isBurgerActive)}>
 												{name}
-											</a>
+											</Link>
 										)}
 								</div>
 							</div>
