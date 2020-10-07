@@ -23,14 +23,23 @@ $table-background-color: hsl(206, 70%, 96%);
 	height: 100vh;
 }
 
+.link-color {
+	color: hsl(244, 55%, 40%)
+}
+
 .floating-element {
 	float: left;
 	width: 50%;
 	margin-right: 20px;
 }
 
-.italics-on-hover:hover {
+.photolink-text {
+	color: hsl(0, 0%, 100%);
+}
+
+.photolink-text:hover {
 	font-style: italic;
+	color: hsl(48, 100%, 67%);
 }
 
 .has-background-translucent {

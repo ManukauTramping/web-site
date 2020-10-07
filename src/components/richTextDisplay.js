@@ -23,8 +23,8 @@ const RichTextDisplay = ({ json }) => {
         return (
           <>
             {uri.startsWith('/')
-              ? <Link to={uri} key={uri} className={'has-text-link-dark'}>{name}</Link>
-              : <a href={uri} key={uri} className={'has-text-link-dark'}>{name}</a>
+              ? <Link to={uri} key={uri} className={'link-color'}>{name}</Link>
+              : <a href={uri} key={uri} className={'link-color'}>{name}</a>
             }
           </>
         )
