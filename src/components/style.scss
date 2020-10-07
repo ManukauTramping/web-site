@@ -71,6 +71,8 @@ $table-background-color: hsl(206, 70%, 96%);
 }
 
 .footer {
+	//grid-row-start: 2;
+	//grid-row-end: 3;
 	clear: both;
 	display: flex;
 	padding: 1.5rem 1.5rem;

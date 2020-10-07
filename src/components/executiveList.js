@@ -4,16 +4,15 @@ import { useStaticQuery, graphql } from "gatsby"
 const ExecutiveList = () => {
   const data = useStaticQuery(graphql`
     query ExecutiveQuery {
-      allContentfulContacts(
-          sort: {fields: executiveRole___rank, order: ASC}, 
-          filter: {executiveRole: {rank: {gt: 0}}}
-        ) {
+      allContentfulExecutiveRole(sort: {order: ASC, fields: rank}) {
         edges {
           node {
-            name
-            phoneNumber
-            executiveRole {
-              role
+            id
+            role
+            officeHolder {
+              phoneNumber
+              name
+              id
             }
           }
         }
@@ -24,13 +23,19 @@ const ExecutiveList = () => {
 	return (
     <table className="table is-fullwidth is-narrow is-bordered is-striped">
       <tbody>
-        {data.allContentfulContacts.edges.map(({ node }) => 
-          <tr key={node.name}>
-            <th style={{width:'30%'}} >{node.executiveRole.role}</th>
-            <td style={{width:'30%'}}>{node.name}</td>
-            <td>{node.phoneNumber}</td>
-          </tr>
-        )}
+        {data.allContentfulExecutiveRole.edges
+          .filter(({ node }) => node.officeHolder)
+          .map(({ node }) =>
+            <>
+              {node.officeHolder.map(({ name, phoneNumber }) =>
+                <tr key={node.id}>
+                  <th style={{width: '30%'}}>{node.role}</th>
+                  <td style={{width: '30%'}}>{name}</td>
+                  <td>{phoneNumber}</td>
+                </tr>
+              )}
+            </>
+          )}
       </tbody>
     </table>
 	)
