@@ -36,7 +36,7 @@ const PlannedTrips = () => {
           return (null)
 
         return (
-          <article key={ node.tripDate + node.title } className="card has-background-info-light">
+          <article key={ node.tripDate + node.title } className="card has-background-success-light is-left-text-aligned">
             <div className="card-header-title">{moment(node.tripDate).format("MMMM Do YYYY")}</div>
             <div className="card-header-title">{node.title}</div>
             <section className="card-content">
