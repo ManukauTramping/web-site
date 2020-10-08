@@ -6,7 +6,7 @@ const MediaLink = ({ file, content }) =>
       ? <img src={file.url} alt="">
           {documentToReactComponents(content)}
       </img>
-      : <a href={file.url} download type={file.contentType}>
+      : <a href={file.url} download type={file.contentType} className={'link-color'}>
           {documentToReactComponents(content)}
         </a>
 

@@ -11,7 +11,7 @@ const PhotoLinks = ({ links }) => {
           <Link key={page.slug} to={`/${page.slug}`}>
             <div className={'is-relative'}>
               <Img key={photo.id} fluid={photo.fluid} title={caption} fadeIn={false} />
-              <div className={'is-size-3 has-text-centered is-overlay photolink-text'}>
+              <div className={'is-size-3 has-text-centered has-text-white is-overlay photolink-text'}>
                 {caption}
               </div>
             </div>

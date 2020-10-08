@@ -33,7 +33,7 @@ const Page = ({ data }) => {
   }
 
   return (
-    <section className="content p-3 has-background-success-light is-size-6">
+    <section className="content p-3 is-size-6">
       <article className="is-clearfix pb-5">
         {data.page.photoCarousel &&
           <PhotoCarousel photos={data.page.photoCarousel} />

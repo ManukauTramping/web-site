@@ -21,7 +21,7 @@ const ExecutiveList = () => {
   `)
 
 	return (
-    <article className="has-background-success-light">
+    <article className="is-left-text-aligned">
       <table className="table is-fullwidth is-narrow is-bordered is-striped">
         <tbody>
           {data.allContentfulExecutiveRole.edges
