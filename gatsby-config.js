@@ -9,7 +9,7 @@ module.exports = {
 		imageUrl: 'dummy content',
 		description: 'Web site for Manukau Tramping Club.',
 		keywords: `Tramping, Hiking, Club, Manukau, Auckland`,
-		siteUrl: `https://manukautrampingclub.netlify.com`
+		siteUrl: `https://www.manukautrampingclub.co.nz`
 	},
 
 	plugins: [
