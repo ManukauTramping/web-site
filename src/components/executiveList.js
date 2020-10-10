@@ -32,7 +32,7 @@ const ExecutiveList = () => {
                   <tr key={node.id}>
                     <th style={{width: '30%'}}>{node.role}</th>
                     <td style={{width: '30%'}}>{name}</td>
-                    <td>{phoneNumber}</td>
+                    <td>{phoneNumber.replace(/-/gi, ' ')}</td>
                   </tr>
                 )}
               </>
