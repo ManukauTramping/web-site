@@ -33,7 +33,7 @@ export default () => (
 					itemprop="description"
 					content={data.site.siteMetadata.description}
 				/>
-				{/* <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> /> */}
+				{/*<meta itemprop="image" content={data.site.siteMetadata.imageUrl} />*/}
 			</Helmet>
 		)}
 	/>

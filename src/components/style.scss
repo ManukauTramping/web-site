@@ -28,7 +28,12 @@ $table-background-color: hsl(142, 52%, 96%);
 }
 
 .link-color {
-	color: hsl(244, 55%, 40%)
+	color: hsla(269, 84%, 26%, 1);
+	font-weight: bold;
+}
+
+.link-color:hover {
+	font-style: italic;
 }
 
 .floating-element {

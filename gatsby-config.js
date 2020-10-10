@@ -6,7 +6,7 @@ module.exports = {
 	siteMetadata: {
 		title: 'Manukau Tramping Club',
 		author: 'Manukau Tramping Club',
-		imageUrl: 'https://i.imgur.com/Vz81GEl.png',
+		imageUrl: 'dummy content',
 		description: 'Web site for Manukau Tramping Club.',
 		keywords: `Tramping, Hiking, Club, Manukau, Auckland`,
 		siteUrl: `https://manukautrampingclub.netlify.com`
@@ -41,7 +41,7 @@ module.exports = {
 				background_color: '#2980b9',
 				theme_color: '#2980b9',
 				display: 'standalone',
-				icon: 'src/images/gatsby-icon.png',
+				icon: 'src/images/hiking.png',
 				orientation: 'portrait'
 			}
 		},
@@ -58,7 +58,8 @@ module.exports = {
       }
 		},
 		`gatsby-plugin-layout`,
-		`gatsby-plugin-sitemap`
+		`gatsby-plugin-sitemap`,
+		`gatsby-plugin-netlify`
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',
