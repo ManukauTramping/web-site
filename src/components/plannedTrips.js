@@ -49,7 +49,11 @@ const PlannedTrips = () => {
                   {node.leaders && 
                     <tr>
                       <th>Leader(s)</th>
-                      <td>{node.leaders.map(({name, phoneNumber}) => <p key={ name }>{name} - Phone: {phoneNumber}</p>)}</td>
+                      <td>
+                        {node.leaders.map(({name, phoneNumber}) =>
+                          <p key={ name }>{name} - Phone: {phoneNumber.replace(/-/gi, ' ')}</p>
+                        )}
+                      </td>
                     </tr>
                   }
                   <tr>
