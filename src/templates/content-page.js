@@ -21,6 +21,9 @@ const Page = ({ data }) => {
     case 'Trips':
       generatedMarkup = <PlannedTrips />
       break
+    case 'Tuesday Tramps':
+      generatedMarkup = <PlannedTrips daysOfWeek={[2]} />
+      break
     case 'Committee Members':
       generatedMarkup = <ExecutiveList />
       break

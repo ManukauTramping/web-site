@@ -3,10 +3,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import moment from 'moment';
 
-const PlannedTrips = () => {
+const PlannedTrips = ({daysOfWeek}) => {
   const data = useStaticQuery(graphql`
     query TripQuery {
-      allContentfulTrip(sort: {order: ASC, fields: tripDate}) {
+      allContentfulTrip(sort: {order: ASC, fields: [tripDate, grade]}) {
         edges {
           node {
             tripDate
@@ -32,7 +32,12 @@ const PlannedTrips = () => {
 	return (
     <>
       {data.allContentfulTrip.edges.map(({ node }) => {
-        if (! moment(node.tripDate).isSameOrAfter(moment()))
+        const tripDate = moment(node.tripDate)
+
+        if (! tripDate.isSameOrAfter(moment().subtract(2, 'd')))
+          return (null)
+
+        if (daysOfWeek && ! daysOfWeek.includes(tripDate.day()))
           return (null)
 
         return (
