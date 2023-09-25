@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import moment from 'moment';
 
 const PlannedTrips = ({daysOfWeek}) => {
@@ -21,7 +21,7 @@ const PlannedTrips = ({daysOfWeek}) => {
               meetupDetails
             }
             description {
-              json
+              raw
             }
           }
         }
@@ -35,10 +35,10 @@ const PlannedTrips = ({daysOfWeek}) => {
         const tripDate = moment(node.tripDate)
 
         if (! tripDate.isSameOrAfter(moment().subtract(2, 'd')))
-          return (null)
+          return null
 
         if (daysOfWeek && ! daysOfWeek.includes(tripDate.day()))
-          return (null)
+          return null
 
         return (
           <article key={ node.tripDate + node.title } className="card has-background-success-light is-left-text-aligned">
@@ -74,7 +74,7 @@ const PlannedTrips = ({daysOfWeek}) => {
                   { node.description &&
                     <tr>
                       <th>Description</th>
-                      <td>{documentToReactComponents(node.description.json)}</td>
+                      <td>{renderRichText(node.description)}</td>
                     </tr>
                   }
                 </tbody>
