@@ -1,12 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES } from "@contentful/rich-text-types"
 import MediaLink from "./mediaLink"
 import AssetLink from "./assetLink"
-import PageLink from "./pageLink"
 
-const RichTextDisplay = ({ json }) => {
+const RichTextDisplay = ({ richText }) => {
 
   const options = {
     renderNode: {
@@ -39,28 +38,12 @@ const RichTextDisplay = ({ json }) => {
         // else if (contentTypeId === 'contact')
         //   return RenderContactEntry(target.fields)
         // else
-          return (null) //documentToReactComponents(node.content)
+          return null //documentToReactComponents(node.content)
       },
     },
   }
 
-  return documentToReactComponents(json, options)
+  return renderRichText(richText, options)
 }
-
-// const RenderPageEntry = ({ fields }) => {  
-//   console.log(fields)
-//   const slug = fields.slug['en-NZ']
-//   return (//fields.displayPhoto !== undefined
-//    <Link to={`/${slug}/`}>
-//       {fields.name['en-NZ']}
-//     </Link>
-//   )
-//   // : <Link to={`/${fields.slug['en-NZ']}/`}>
-//   //     {fields.name['en-NZ']}
-//   //   </Link>
-// }
-
-
-const RenderContactEntry = ({ fields }) => (null)
 
 export default RichTextDisplay

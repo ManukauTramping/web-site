@@ -10,7 +10,7 @@ import PhotoCarousel from "../components/photoCarouselSlick";
 
 const Page = ({ data }) => {
 
-  const json = data.page.content.json
+  const content = data.page.content
   const photoLinks = data.page.photoLinks
   const includedList = data.page.includedList
 
@@ -41,7 +41,7 @@ const Page = ({ data }) => {
         {data.page.photoCarousel &&
           <PhotoCarousel photos={data.page.photoCarousel} />
         }
-        <RichTextDisplay json={json} />
+        <RichTextDisplay richText={content} />
       </article>
       {(photoLinks || generatedMarkup) &&
         <>
@@ -60,7 +60,7 @@ export const getPageContent = graphql`
     page: contentfulPage(slug: { eq: $slug }) {
       includedList
       content {
-        json
+        raw
       }
       photoCarousel {
         id
