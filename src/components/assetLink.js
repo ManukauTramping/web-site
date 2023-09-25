@@ -1,5 +1,5 @@
 import React from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { useStaticQuery, graphql } from "gatsby"
 import MediaLink from "./mediaLink"
 
@@ -23,7 +23,7 @@ const AssetLink = ({ id, content }) => {
   return (
     asset
     ? <MediaLink file={asset.file} content={content} />
-    : <>{documentToReactComponents(content)}</>
+    : <>{renderRichText(content)}</>
   )
 }
 

@@ -1,13 +1,13 @@
 import React from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const MediaLink = ({ file, content }) => 
     file.contentType.startsWith('image')
       ? <img src={file.url} alt="">
-          {documentToReactComponents(content)}
+          {renderRichText(content)}
       </img>
       : <a href={file.url} download type={file.contentType} className={'link-color'}>
-          {documentToReactComponents(content)}
+          {renderRichText(content)}
         </a>
 
 export default MediaLink;
