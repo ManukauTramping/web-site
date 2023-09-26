@@ -2,41 +2,34 @@ import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 const Navbar = () => {
-  const data = useStaticQuery(graphql`
-    query MenuQuery {
-			site {
-				siteMetadata {
-					author
-				}
-			}
-			allContentfulPage(
-					sort: {fields: menuItemOrder, order: ASC}, 
-					filter: {menuItemOrder: {gt: 0}}
-				) {
-				edges {
-					node {
-						name
-						slug
-						menuItemOrder
-					}
-				}
-			}
-			allContentfulDropdownMenu(
-					sort: {fields: order, order: ASC}
-				) {
-				edges {
-					node {
-						title
-						order
-						childPages {
-							name
-							slug
-						}
-					}
-				}
-			}
-		}
-  `)
+  const data = useStaticQuery(graphql`query MenuQuery {
+  site {
+    siteMetadata {
+      author
+    }
+  }
+  allContentfulPage(sort: {menuItemOrder: ASC}, filter: {menuItemOrder: {gt: 0}}) {
+    edges {
+      node {
+        name
+        slug
+        menuItemOrder
+      }
+    }
+  }
+  allContentfulDropdownMenu(sort: {order: ASC}) {
+    edges {
+      node {
+        title
+        order
+        childPages {
+          name
+          slug
+        }
+      }
+    }
+  }
+}`)
 
 	const [isBurgerActive, setIsBurgerActive ] = useState(false);
 
