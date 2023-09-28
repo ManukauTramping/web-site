@@ -14,7 +14,6 @@ const Page = ({ data }) => {
   const photoLinks = data.page.photoLinks
   const includedList = data.page.includedList
 
-
   let generatedMarkup = null
   switch(includedList)
   {

@@ -54,12 +54,6 @@ $table-background-color: hsl(142, 52%, 96%);
 	z-index: 50;
 }
 
-.sticky-footer-layout {
-	min-height: 92vh;
-	display: flex;
-	flex-direction: column;
-}
-
 .footer {
 	clear: both;
 	display: flex;
