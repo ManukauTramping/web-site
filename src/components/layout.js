@@ -11,7 +11,7 @@ const Layout = ({ withCarousel, children }) => (
 			<header className="sticky-header">
 				<Navbar />
 			</header>
-			<section className={`section has-background-success-light ${withCarousel ? 'pt-0' : 'pt-5'}`}>
+			<section className={`section has-background-success-light pt-0`}>
 				{children}
 			</section>
 			<Footer />

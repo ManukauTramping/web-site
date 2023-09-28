@@ -8,9 +8,6 @@ exports.createPages = ({ graphql, actions }) => {
         edges {
           node {
             slug
-            photoCarousel {
-              id
-            }
           }
         }
       }
@@ -25,7 +22,6 @@ exports.createPages = ({ graphql, actions }) => {
           // in page queries as GraphQL variables;
           // and is passed to layout file
           slug: node.slug,
-          withCarousel: node.photoCarousel !== undefined && node.photoCarousel !== null,
         },
       })
     })
