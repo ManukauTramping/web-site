@@ -34,7 +34,7 @@ const Navbar = () => {
 	const [isBurgerActive, setIsBurgerActive ] = useState(false);
 
 	return (
-		<nav className="navbar is-link is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
+		<nav className="navbar is-link is-spaced" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
 				<Link className="navbar-item is-size-3 is-size-4-mobile" to={'/'}>
 					{data.site.siteMetadata.author}
