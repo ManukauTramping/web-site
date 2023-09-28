@@ -4,18 +4,18 @@ import Helmet from './helmet';
 import Navbar from './navbar';
 import Footer from './footer';
 
-const Layout = ({ children }) => (
+const Layout = ({ withCarousel, children }) => (
 	<>
 		<Helmet />
-		<div className={'sticky-footer-layout'}>
-			<header>
+		<section>
+			<header className="sticky-header">
 				<Navbar />
 			</header>
-			<section className="section has-background-success-light" style={{flexGrow: '1'}}>
+			<section className={`section has-background-success-light pt-0`}>
 				{children}
 			</section>
-			<Footer style={{flexShrink: '0'}} />
-		</div>
+			<Footer />
+		</section>
 	</>
 );
 

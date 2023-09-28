@@ -2,24 +2,22 @@ import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
 const UsefulLinks = () => {
-  const data = useStaticQuery(graphql`
-    query UsefulLinkQuery {
-      allContentfulLinkCategory(sort: {order: ASC, fields: order}) {
-        edges {
-          node {
-            name
-            links {
-              url
-              name
-              description {
-                description
-              }
-            }
+  const data = useStaticQuery(graphql`query UsefulLinkQuery {
+  allContentfulLinkCategory(sort: {order: ASC}) {
+    edges {
+      node {
+        name
+        links {
+          url
+          name
+          description {
+            description
           }
         }
       }
     }
-  `)
+  }
+}`)
 
 	return (
     <>
