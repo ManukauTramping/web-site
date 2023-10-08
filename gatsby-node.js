@@ -14,13 +14,14 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allContentfulPage.edges.forEach(({ node }) => {
+      const templateName = `content-page.js`;
+
       createPage({
         path: node.slug,
-        component: path.resolve('./src/templates/content-page.js'),
+        component: path.resolve(`./src/templates/${templateName}`),
         context: {
           // Data passed to context is available
-          // in page queries as GraphQL variables;
-          // and is passed to layout file
+          // in page queries as GraphQL variables.
           slug: node.slug,
         },
       })
