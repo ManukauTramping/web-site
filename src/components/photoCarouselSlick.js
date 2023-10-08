@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image";
+import Img from "gatsby-image"
 import Slider from "react-slick"
 
 const PhotoCarousel = ({ name, slideCount, photos }) => {
@@ -17,7 +17,7 @@ const PhotoCarousel = ({ name, slideCount, photos }) => {
     cssEase: "linear"
   }
 
-  const images = photos.map(photo => <GatsbyImage image={photo.gatsbyImageData} key={photo.id}  alt={photo.title}/>)
+  const images = photos.map(photo => <Img fluid={photo.fluid} key={photo.id} />)
   const slider = (
     <Slider {...carouselOptions}>
       {images}

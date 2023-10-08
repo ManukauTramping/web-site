@@ -1,6 +1,6 @@
 import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
-import { Helmet } from 'react-helmet';
+import Helmet from 'react-helmet';
 
 export default () => {
 	const data = useStaticQuery(graphql`
@@ -26,7 +26,7 @@ export default () => {
 			<meta name="description" content={data.site.siteMetadata.description} />
 			<meta name="keywords" content={data.site.siteMetadata.keywords} />
 			<title>{data.site.siteMetadata.title}</title>
-			<html lang="en" />
+			<html lang="en" className={'has-navbar-fixed-top'} />
 			{/* Google / Search Engine Meta Tags */}
 			<meta itemProp="name" content={data.site.siteMetadata.author} />
 			<meta
