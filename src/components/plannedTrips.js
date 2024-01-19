@@ -42,7 +42,7 @@ const PlannedTrips = ({daysOfWeek}) => {
 
         return (
           <article key={ node.tripDate + node.title } className="card has-background-success-light is-left-text-aligned">
-            <div className="card-header-title">{moment(node.tripDate).format("MMMM Do YYYY")}</div>
+            <div className="card-header-title">{moment(node.tripDate).format("dddd Do MMMM YYYY")}</div>
             <div className="card-header-title">{node.title}</div>
             <section className="card-content">
               <table className="table is-fullwidth is-narrow is-bordered is-striped">
