@@ -80,7 +80,7 @@ const PlannedTrips = ({daysOfWeek}) => {
                 </tbody>
               </table>
               {node.description &&
-                <table className="is-mobile table is-fullwidth is-narrow is-bordered">
+                <table className="is-hidden-tablet table is-fullwidth is-narrow is-bordered is-striped">
                   <thead>
                     <tr>
                       <th>Description</th>
