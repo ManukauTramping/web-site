@@ -81,12 +81,10 @@ const PlannedTrips = ({daysOfWeek}) => {
               </table>
               {node.description &&
                 <table className="is-hidden-tablet table is-fullwidth is-narrow is-bordered is-striped">
-                  <thead>
+                  <tbody>
                     <tr>
                       <th>Description</th>
                     </tr>
-                  </thead>
-                  <tbody>
                     <tr>
                       <td>{renderRichText(node.description)}</td>
                     </tr>
