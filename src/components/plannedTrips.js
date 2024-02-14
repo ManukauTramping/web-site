@@ -71,17 +71,30 @@ const PlannedTrips = ({daysOfWeek}) => {
                       <td>{node.fare}</td>
                     </tr>
                   }     
-                  { node.description &&
-                    <tr>
+                  {node.description &&
+                    <tr className="is-hidden-mobile">
                       <th>Description</th>
                       <td>{renderRichText(node.description)}</td>
                     </tr>
                   }
                 </tbody>
               </table>
+              {node.description &&
+                <table className="is-hidden-tablet table is-fullwidth is-narrow is-bordered is-striped">
+                  <tbody>
+                    <tr>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>{renderRichText(node.description)}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              }
             </section>
           </article>
-        )}
+        )
+        }
       )}
     </>
 	)
