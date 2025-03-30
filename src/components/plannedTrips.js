@@ -50,13 +50,13 @@ const PlannedTrips = ({daysOfWeek}) => {
                 <tbody>
                   <tr className="is-hidden-mobile">
                     <th style={{width:'20%'}}>Terrain Difficulty</th>
-                    <td style={{width:'15%'}}>{node.terrainDifficulty}</td>
-                    <th style={{width:'15%'}}>Expected Duration</th>
+                    <td style={{width:'20%'}}>{node.terrainDifficulty}</td>
+                    <th style={{width:'25%'}}>Expected Duration</th>
                     <td>{node.expectedDuration}</td>
                   </tr>
                   <tr className="is-hidden-tablet">
-                    <th style={{width:'20%'}}>Terrain Difficulty</th>
-                    <td style={{width:'80%'}}>{node.terrainDifficulty}</td>
+                    <th style={{width:'30%'}}>Terrain Difficulty</th>
+                    <td style={{width:'70%'}}>{node.terrainDifficulty}</td>
                   </tr>
                   <tr className="is-hidden-tablet">
                     <th>Expected Duration</th>
