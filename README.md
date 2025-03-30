@@ -8,7 +8,7 @@
 
 ## Technologies ⚛️
 
-- Gatsby v2
+- Gatsby v4
 - Bulma
 - Contentful CMS
 - Netlify Deployment
