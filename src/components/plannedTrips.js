@@ -48,16 +48,16 @@ const PlannedTrips = ({daysOfWeek}) => {
             <section className="card-content">
               <table className="table is-fullwidth is-narrow is-bordered is-striped">
                 <tbody>
-                  <tr className="is-hidden-touch is-hidden-desktop-only">
-                    <th style={{width:'15%'}}>Terrain Difficulty</th>
+                  <tr className="is-hidden-touch">
+                    <th style={{width:'20%'}}>Terrain Difficulty</th>
                     <td style={{width:'15%'}}>{node.terrainDifficulty}</td>
-                    <th style={{width:'15%'}}>Expected Duration</th>
+                    <th style={{width:'20%'}}>Expected Duration</th>
                     <td>{node.expectedDuration}</td>
                   </tr>
-                  <tr className="is-hidden-mobile is-hidden-widescreen">
-                    <th style={{width:'20%'}}>Terrain Difficulty</th>
+                  <tr className="is-hidden-mobile is-hidden-desktop">
+                    <th style={{width:'25%'}}>Terrain Difficulty</th>
                     <td style={{width:'20%'}}>{node.terrainDifficulty}</td>
-                    <th style={{width:'20%'}}>Expected Duration</th>
+                    <th style={{width:'25%'}}>Expected Duration</th>
                     <td>{node.expectedDuration}</td>
                   </tr>
                   <tr className="is-hidden-tablet">
