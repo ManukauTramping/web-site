@@ -96,3 +96,33 @@ $table-background-color: hsl(142, 52%, 96%);
 		color: $secondary-color;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.is-displayed-tablet-only {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.is-displayed-tablet-only {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.is-displayed-desktop-only {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 1216px) {
+	.is-displayed-desktop-only {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width: 1215px) {
+	.is-displayed-widescreen {
+		display: none !important;
+	}
+}
