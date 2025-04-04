@@ -67,8 +67,8 @@ const PlannedTrips = ({daysOfWeek}) => {
                     <td>{node.expectedDuration}</td>
                   </tr>
                   <tr className="is-hidden-tablet">
-                    <th style={{width:'30%'}}>Terrain Difficulty</th>
-                    <td style={{width:'70%'}}>{node.terrainDifficulty}</td>
+                    <th style={{width:'25%'}}>Terrain Difficulty</th>
+                    <td style={{width:'75%'}}>{node.terrainDifficulty}</td>
                   </tr>
                   <tr className="is-hidden-tablet">
                     <th>Expected Duration</th>
