@@ -11,7 +11,8 @@ const PlannedTrips = ({daysOfWeek}) => {
           node {
             tripDate
             title
-            grade
+            expectedDuration
+            terrainDifficulty
             fare
             leaders {
               name
@@ -47,14 +48,38 @@ const PlannedTrips = ({daysOfWeek}) => {
             <section className="card-content">
               <table className="table is-fullwidth is-narrow is-bordered is-striped">
                 <tbody>
-                  <tr>
-                    <th style={{width:'20%'}}>Grade</th>
-                    <td>{node.grade}</td>
+                  <tr className="is-displayed-widescreen">
+                    <th style={{width:'15%'}}>Terrain Difficulty</th>
+                    <td style={{width:'15%'}}>{node.terrainDifficulty}</td>
+                    <th style={{width:'15%'}}>Expected Duration</th>
+                    <td>{node.expectedDuration}</td>
                   </tr>
-                  {node.leaders && 
+                  <tr className="is-displayed-desktop-only">
+                    <th style={{width:'20%'}}>Terrain Difficulty</th>
+                    <td style={{width:'15%'}}>{node.terrainDifficulty}</td>
+                    <th style={{width:'20%'}}>Expected Duration</th>
+                    <td>{node.expectedDuration}</td>
+                  </tr>
+                  <tr className="is-displayed-tablet-only">
+                    <th style={{width:'25%'}}>Terrain Difficulty</th>
+                    <td style={{width:'20%'}}>{node.terrainDifficulty}</td>
+                    <th style={{width:'25%'}}>Expected Duration</th>
+                    <td>{node.expectedDuration}</td>
+                  </tr>
+                  <tr className="is-hidden-tablet">
+                    <th style={{width:'25%'}}>Terrain Difficulty</th>
+                    <td style={{width:'75%'}}>{node.terrainDifficulty}</td>
+                  </tr>
+                  <tr className="is-hidden-tablet">
+                    <th>Expected Duration</th>
+                    <td>{node.expectedDuration}</td>
+                  </tr>
+                  <tr>
+                  </tr>
+                  {node.leaders &&
                     <tr>
                       <th>Leader(s)</th>
-                      <td>
+                      <td colSpan="3">
                         {node.leaders.map(({name, phoneNumber}) =>
                           <p key={ name }>{name} - Phone: {phoneNumber.replace(/-/gi, ' ')}</p>
                         )}
@@ -63,18 +88,18 @@ const PlannedTrips = ({daysOfWeek}) => {
                   }
                   <tr>
                     <th>Departs</th>
-                    <td>{node.meetupDetails.meetupDetails}</td>
+                    <td colSpan="3">{node.meetupDetails.meetupDetails}</td>
                   </tr>
                   {node.fare && 
                     <tr>
                       <th>Fare</th>
-                      <td>{node.fare}</td>
+                      <td colSpan="3">{node.fare}</td>
                     </tr>
                   }     
                   {node.description &&
                     <tr className="is-hidden-mobile">
                       <th>Description</th>
-                      <td>{renderRichText(node.description)}</td>
+                      <td colSpan="3">{renderRichText(node.description)}</td>
                     </tr>
                   }
                 </tbody>
