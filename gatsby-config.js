@@ -26,6 +26,7 @@ module.exports = {
 			options: {
 				spaceId: process.env.CONTENTFUL_SPACEID,
 				accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
+				host: process.env.CONTENTFUL_HOST || `cdn.contentful.com`,
 				forceFullSync: false,
 			},
 		},
