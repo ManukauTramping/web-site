@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
-import MediaLink from "./mediaLink"
 import AssetLink from "./assetLink"
 
 const RichTextDisplay = ({ richText }) => {
