@@ -29,7 +29,7 @@ module.exports = {
 				host: process.env.CONTENTFUL_HOST || `cdn.contentful.com`,
 			},
 		},
-		'gatsby-plugin-image',
+		'gatsby-image',
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		{
@@ -59,6 +59,7 @@ module.exports = {
 		},
 		`gatsby-plugin-layout`,
 		`gatsby-plugin-sitemap`,
+		'gatsby-plugin-netlify',
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',

@@ -4,29 +4,31 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import moment from 'moment';
 
 const PlannedTrips = ({daysOfWeek}) => {
-  const data = useStaticQuery(graphql`query TripQuery {
-  allContentfulTrip(sort: [{tripDate: ASC}, {grade: ASC}]) {
-    edges {
-      node {
-        tripDate
-        title
-        expectedDuration
-        terrainDifficulty
-        fare
-        leaders {
-          name
-          phoneNumber
-        }
-        meetupDetails {
-          meetupDetails
-        }
-        description {
-          raw
+  const data = useStaticQuery(graphql`
+    query TripQuery {
+      allContentfulTrip(sort: {order: ASC, fields: [tripDate, grade]}) {
+        edges {
+          node {
+            tripDate
+            title
+            expectedDuration
+            terrainDifficulty
+            fare
+            leaders {
+              name
+              phoneNumber
+            }
+            meetupDetails {
+              meetupDetails
+            }
+            description {
+              raw
+            }
+          }
         }
       }
     }
-  }
-}`)
+  `)
 
 	return (
     <>

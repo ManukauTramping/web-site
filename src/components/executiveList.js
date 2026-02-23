@@ -2,21 +2,23 @@ import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
 const ExecutiveList = () => {
-  const data = useStaticQuery(graphql`query ExecutiveQuery {
-  allContentfulExecutiveRole(sort: {rank: ASC}) {
-    edges {
-      node {
-        id
-        role
-        officeHolder {
-          phoneNumber
-          name
-          id
+  const data = useStaticQuery(graphql`
+    query ExecutiveQuery {
+      allContentfulExecutiveRole(sort: {order: ASC, fields: rank}) {
+        edges {
+          node {
+            id
+            role
+            officeHolder {
+              phoneNumber
+              name
+              id
+            }
+          }
         }
       }
     }
-  }
-}`)
+  `)
 
 	return (
     <article className="is-left-text-aligned">

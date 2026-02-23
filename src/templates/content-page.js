@@ -65,7 +65,9 @@ export const getPageContent = graphql`
       photoCarousel {
         id
         title
-        gatsbyImageData(layout: CONSTRAINED, width: 800, height: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        fluid(maxWidth:800, maxHeight: 500) {
+          ...GatsbyContentfulFluid_withWebp
+        }
       }
       photoLinks {
         caption
@@ -74,7 +76,9 @@ export const getPageContent = graphql`
         }
         photo {
           id
-          gatsbyImageData(layout: CONSTRAINED, width: 800, height: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+          fluid(maxWidth:800, maxHeight: 500) {
+            ...GatsbyContentfulFluid_withWebp
+          }
         }
       }
     }
