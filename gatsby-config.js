@@ -29,7 +29,7 @@ module.exports = {
 				host: process.env.CONTENTFUL_HOST || `cdn.contentful.com`,
 			},
 		},
-		'gatsby-plugin-image',
+		'gatsby-image',
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		{
