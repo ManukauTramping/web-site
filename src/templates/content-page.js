@@ -61,6 +61,26 @@ export const getPageContent = graphql`
       includedList
       content {
         raw
+        references {
+          ... on ContentfulPage {
+            contentful_id
+            name
+            slug
+          }
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            title
+            sys {
+              type
+            }
+            file {
+              contentType
+              url
+            }
+            gatsbyImageData(layout: CONSTRAINED, width: 800, height: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+          }
+        }
       }
       photoCarousel {
         id
