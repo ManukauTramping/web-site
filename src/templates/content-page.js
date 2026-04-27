@@ -62,23 +62,25 @@ export const getPageContent = graphql`
       content {
         raw
         references {
-          ... on ContentfulPage {
-            contentful_id
-            name
-            slug
-          }
-          ... on ContentfulAsset {
-            contentful_id
-            __typename
-            title
-            sys {
-              type
+          ... on Node {
+            ... on ContentfulPage {
+              contentful_id
+              name
+              slug
             }
-            file {
-              contentType
-              url
+            ... on ContentfulAsset {
+              contentful_id
+              __typename
+              title
+              sys {
+                type
+              }
+              file {
+                contentType
+                url
+              }
+              gatsbyImageData(layout: CONSTRAINED, width: 800, height: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
             }
-            gatsbyImageData(layout: CONSTRAINED, width: 800, height: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
           }
         }
       }
