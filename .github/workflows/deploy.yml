@@ -1,0 +1,62 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Gatsby Site
+        run: npm run build
+        env:
+          CONTENTFUL_SPACEID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESSTOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+
+      # Deploy using an explicit flag based on the trigger event
+      - name: Deploy to Netlify
+        id: netlify-deploy
+        run: |
+          npm install -g netlify-cli
+          
+          # If the event is a push to main, deploy to production. Otherwise, deploy a preview.
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "Deploying to Production..."
+            OUTPUT=$(netlify deploy --dir=public --prod --json)
+          else
+            echo "Deploying Pull Request Preview..."
+            OUTPUT=$(netlify deploy --dir=public --json)
+          fi
+          
+          # Extract the deploy URL from the JSON output for the next step
+          URL=$(echo "$OUTPUT" | jq -r '.deploy_url')
+          echo "deploy_url=$URL" >> $GITHUB_OUTPUT
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      # Leave a comment on the Pull Request with the preview link
+      - name: Comment PR with Preview Link
+        if: github.event_name == 'pull_request'
+        uses: mshick/github-actions-comment-on-pr@v2
+        with:
+          message: |
+            🚀 **Netlify Preview Deployment Successful!**
+            
+            Preview URL: ${{ steps.netlify-deploy.outputs.deploy_url }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
